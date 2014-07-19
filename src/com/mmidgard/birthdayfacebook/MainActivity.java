@@ -14,8 +14,10 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mmidgard.birthdayfacebook.dao.LoginDAO;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -34,6 +36,8 @@ public class MainActivity extends FragmentActivity {
 	private CaldroidFragment dialogCaldroidFragment;
 	private Button selectDay;
 	private Bundle teste;
+	private TextView userName;
+	private TextView userFriends;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,13 @@ public class MainActivity extends FragmentActivity {
 		teste = savedInstanceState;
 
 		getValues();
+		getLogin();
+	}
+
+	private void getLogin() {
+		LoginDAO loginDao = new LoginDAO(MainActivity.this);
+		Login login = loginDao.getAll().get(0);
+		userName.setText(login.getNome());
 	}
 
 	public void getValues() {
@@ -60,6 +71,8 @@ public class MainActivity extends FragmentActivity {
 		all = (Button)findViewById(R.id.menu_all);
 		rate = (Button)findViewById(R.id.menu_rate);
 		selectDay = (Button)findViewById(R.id.menu_select);
+		userName = (TextView) findViewById(R.id.user_name);
+		userFriends = (TextView) findViewById(R.id.user_friends);
 
 		today.setOnClickListener(new OnClickListener() {
 
