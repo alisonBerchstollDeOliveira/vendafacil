@@ -1,11 +1,10 @@
-package com.mmidgard.birthdayfacebook;
+package com.mmidgard.vendas;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import android.content.Context;
 import android.net.wifi.WifiManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;

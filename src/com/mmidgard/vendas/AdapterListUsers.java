@@ -1,4 +1,4 @@
-package com.mmidgard.birthdayfacebook;
+package com.mmidgard.vendas;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,14 +13,14 @@ import android.widget.TextView;
 public class AdapterListUsers extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;
 	private LayoutInflater mInflater;
-	private List<User> listUsuarios;
+	private List<Product> listUsuarios;
 
-	public AdapterListUsers(Context context, List<User> itens) {
+	public AdapterListUsers(Context context, List<Product> itens) {
 		this.listUsuarios = itens;
 		mInflater = LayoutInflater.from(context);
 	}
 
-	public void updateList(List<User> listaNovosProdutos) {
+	public void updateList(List<Product> listaNovosProdutos) {
 		this.listUsuarios = listaNovosProdutos;
 		notifyDataSetChanged();
 	}
@@ -29,7 +29,7 @@ public class AdapterListUsers extends BaseAdapter implements Serializable {
 		return listUsuarios.size();
 	}
 
-	public User getItem(int position) {
+	public Product getItem(int position) {
 		return listUsuarios.get(position);
 	}
 
@@ -38,8 +38,8 @@ public class AdapterListUsers extends BaseAdapter implements Serializable {
 	}
 
 	public View getView(final int position, final View view, ViewGroup parent) {
-		final User user = listUsuarios.get(position);
-		View v = mInflater.inflate(R.layout.item_list, null);
+		final Product user = listUsuarios.get(position);
+		View v = mInflater.inflate(R.layout.item_cliente, null);
 
 //		ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
 		TextView name = (TextView)v.findViewById(R.id.item_name);
@@ -47,8 +47,8 @@ public class AdapterListUsers extends BaseAdapter implements Serializable {
 		TextView age = (TextView)v.findViewById(R.id.item_age);
 		
 		name.setText(user.getName());
-		date.setText(user.getBirthdayDate());
-		age.setText(user.getAge());
+		date.setText(user.getStock());
+		age.setText(user.getValue());
 
 		return v;
 	}

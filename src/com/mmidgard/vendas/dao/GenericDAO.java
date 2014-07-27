@@ -1,4 +1,4 @@
-package com.mmidgard.birthdayfacebook.dao;
+package com.mmidgard.vendas.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
