@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.mmidgard.vendas.R;
 
-public class NewCustomer extends Activity {
+public class NewCategory extends Activity {
 
 	private Button cancel;
 
@@ -17,7 +17,7 @@ public class NewCustomer extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.new_customer);
+		setContentView(R.layout.new_category);
 
 		cancel = (Button)findViewById(R.id.cancel);
 		cancel.setOnClickListener(new OnClickListener() {

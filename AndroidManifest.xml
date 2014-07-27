@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.mmidgard.vendas.MainActivity"
+            android:name="com.mmidgard.vendas.MenuInicial"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +32,8 @@
         <activity android:name="com.mmidgard.vendas.news.NewCustomer" />
         <activity android:name="com.mmidgard.vendas.list.ListProducts" />
         <activity android:name="com.mmidgard.vendas.news.NewProduct" />
+        <activity android:name="com.mmidgard.vendas.list.ListCategories" />
+        <activity android:name="com.mmidgard.vendas.news.NewCategory" />
     </application>
 
 </manifest>

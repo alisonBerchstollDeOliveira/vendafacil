@@ -122,12 +122,13 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="#E94F5B"
-            android:text="Cancelar"
+            android:text="Voltar"
             android:textColor="#fff"
             android:textSize="20sp" />
 

@@ -19,16 +19,19 @@ public class Category implements Serializable {
 	private String description;
 	@DatabaseField
 	private List<Product> products;
-	
-	public Category(String name)
-	{
+
+	public Category(String name) {
 		this.name = name;
 	}
 
-	public Category()
-	{
+	public Category(String name, String description) {
+		this.name = name;
+		this.description = description;
 	}
-	
+
+	public Category() {
+	}
+
 	public int getId() {
 		return id;
 	}

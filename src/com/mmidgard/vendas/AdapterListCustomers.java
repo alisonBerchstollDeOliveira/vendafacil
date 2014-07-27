@@ -15,24 +15,24 @@ import com.mmidgard.vendas.entity.Customer;
 public class AdapterListCustomers extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;
 	private LayoutInflater mInflater;
-	private List<Customer> listUsuarios;
+	private List<Customer> listCustomers;
 
 	public AdapterListCustomers(Context context, List<Customer> itens) {
-		this.listUsuarios = itens;
+		this.listCustomers = itens;
 		mInflater = LayoutInflater.from(context);
 	}
 
-	public void updateList(List<Customer> listaNovosProdutos) {
-		this.listUsuarios = listaNovosProdutos;
+	public void updateList(List<Customer> listCustomers) {
+		this.listCustomers = listCustomers;
 		notifyDataSetChanged();
 	}
 
 	public int getCount() {
-		return listUsuarios.size();
+		return listCustomers.size();
 	}
 
 	public Customer getItem(int position) {
-		return listUsuarios.get(position);
+		return listCustomers.get(position);
 	}
 
 	public long getItemId(int position) {
@@ -40,7 +40,7 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 	}
 
 	public View getView(final int position, final View view, ViewGroup parent) {
-		final Customer user = listUsuarios.get(position);
+		final Customer user = listCustomers.get(position);
 		View v = mInflater.inflate(R.layout.item_customer, null);
 
 		// ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
