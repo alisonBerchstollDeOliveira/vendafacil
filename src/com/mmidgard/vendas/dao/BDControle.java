@@ -10,7 +10,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Customer;
-import com.mmidgard.vendas.entity.Demand;
+import com.mmidgard.vendas.entity.Sale;
 import com.mmidgard.vendas.entity.Product;
 
 public class BDControle<E> extends OrmLiteSqliteOpenHelper {
@@ -27,7 +27,7 @@ public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 			TableUtils.createTableIfNotExists(src, Product.class);
 			TableUtils.createTableIfNotExists(src, Category.class);
 			TableUtils.createTableIfNotExists(src, Customer.class);
-			TableUtils.createTableIfNotExists(src, Demand.class);
+			TableUtils.createTableIfNotExists(src, Sale.class);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 			TableUtils.dropTable(src, Product.class, true);
 			TableUtils.dropTable(src, Category.class, true);
 			TableUtils.dropTable(src, Customer.class, true);
-			TableUtils.dropTable(src, Demand.class, true);
+			TableUtils.dropTable(src, Sale.class, true);
 
 			onCreate(db, src);
 		} catch (SQLException e) {

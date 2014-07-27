@@ -14,6 +14,10 @@ public class Customer implements Serializable {
 	@DatabaseField
 	private String name;
 	@DatabaseField
+	private String phone;
+	@DatabaseField
+	private String mobilePhone;
+	@DatabaseField
 	private String city;
 	@DatabaseField
 	private String uf;
@@ -97,6 +101,22 @@ public class Customer implements Serializable {
 
 	public void setStreet(String street) {
 		this.street = street;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+
+	public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
 	}
 
 }

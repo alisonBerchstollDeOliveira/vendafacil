@@ -6,8 +6,8 @@ import java.util.List;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "demand")
-public class Demand {
+@DatabaseTable(tableName = "sale")
+public class Sale {
 
 	@DatabaseField(id = true)
 	private int id;
@@ -22,7 +22,7 @@ public class Demand {
 	@DatabaseField
 	private double priceFinal;
 
-	public Demand() {
+	public Sale() {
 	}
 
 	public int getId() {
