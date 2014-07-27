@@ -5,6 +5,25 @@
     android:orientation="vertical"
     android:padding="5dp" >
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <AutoCompleteTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Pesquisar..."
+            android:focusable="false" />
+
+        <Spinner
+            android:id="@+id/customers_order"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/list_customers"
         android:layout_width="fill_parent"
