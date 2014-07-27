@@ -16,7 +16,6 @@ import com.mmidgard.vendas.AdapterListCategories;
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.news.NewCategory;
-import com.mmidgard.vendas.news.NewCustomer;
 
 public class ListCategories extends Activity {
 

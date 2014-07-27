@@ -3,14 +3,14 @@ package com.mmidgard.vendas;
 import java.io.Serializable;
 import java.util.List;
 
-import com.mmidgard.vendas.entity.Product;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.mmidgard.vendas.entity.Product;
 
 public class AdapterListProducts extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;

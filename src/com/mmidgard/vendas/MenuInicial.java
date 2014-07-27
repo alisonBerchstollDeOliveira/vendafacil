@@ -39,7 +39,7 @@ public class MenuInicial extends FragmentActivity {
 		newCustomer = (Button)findViewById(R.id.new_customer);
 		listProducts = (Button)findViewById(R.id.menu_products);
 		newProduct = (Button)findViewById(R.id.new_product);
-		listCategories = (Button) findViewById(R.id.menu_categories);
+		listCategories = (Button)findViewById(R.id.menu_categories);
 		newCategory = (Button)findViewById(R.id.new_category);
 
 		listCustomers.setOnClickListener(new OnClickListener() {
@@ -77,7 +77,7 @@ public class MenuInicial extends FragmentActivity {
 				startActivity(i);
 			}
 		});
-		
+
 		listCategories.setOnClickListener(new OnClickListener() {
 
 			@Override
