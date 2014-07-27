@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="5dp" >
 
     <ListView
-        android:id="@+id/list_users"
+        android:id="@+id/list_customers"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -13,13 +14,12 @@
         android:background="#fff" />
 
     <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
+        android:id="@+id/new_"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:background="@drawable/logout"
-        android:text="Back"
-        android:textColor="#01533E" />
+        android:background="#009989"
+        android:text="Novo cliente"
+        android:textColor="#fff"
+        android:textSize="20sp" />
 
 </LinearLayout>

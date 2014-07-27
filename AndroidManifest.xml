@@ -28,7 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mmidgard.vendas.VisualizarClientes" />
+        <activity android:name="com.mmidgard.vendas.list.ListCustomers" />
+        <activity android:name="com.mmidgard.vendas.news.NewCustomer" />
+        <activity android:name="com.mmidgard.vendas.list.ListProducts" />
+        <activity android:name="com.mmidgard.vendas.news.NewProduct" />
     </application>
 
 </manifest>

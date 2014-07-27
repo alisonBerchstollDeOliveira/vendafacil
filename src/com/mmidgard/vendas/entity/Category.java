@@ -1,4 +1,4 @@
-package com.mmidgard.vendas;
+package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,6 +19,11 @@ public class Category implements Serializable {
 	private String description;
 	@DatabaseField
 	private List<Product> products;
+	
+	public Category(String name)
+	{
+		this.name = name;
+	}
 
 	public Category()
 	{

@@ -1,4 +1,4 @@
-package com.mmidgard.vendas;
+package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
 
@@ -20,15 +20,18 @@ public class Product implements Serializable {
 	@DatabaseField
 	private String value;
 	@DatabaseField
+	private String type;
+	@DatabaseField
 	private Category category;
 
 	public Product() {
 	}
 
-	public Product(String name, String stock, String value) {
+	public Product(String name, String stock, String value, Category c) {
 		this.name = name;
 		this.stock = stock;
 		this.value = value;
+		this.category = c;
 	}
 
 	public String getName() {
@@ -71,11 +74,19 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public Category getCategories() {
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategories(Category category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 

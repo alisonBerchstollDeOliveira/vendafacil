@@ -10,17 +10,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class AdapterListUsers extends BaseAdapter implements Serializable {
+import com.mmidgard.vendas.entity.Customer;
+
+public class AdapterListCustomers extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;
 	private LayoutInflater mInflater;
-	private List<Product> listUsuarios;
+	private List<Customer> listUsuarios;
 
-	public AdapterListUsers(Context context, List<Product> itens) {
+	public AdapterListCustomers(Context context, List<Customer> itens) {
 		this.listUsuarios = itens;
 		mInflater = LayoutInflater.from(context);
 	}
 
-	public void updateList(List<Product> listaNovosProdutos) {
+	public void updateList(List<Customer> listaNovosProdutos) {
 		this.listUsuarios = listaNovosProdutos;
 		notifyDataSetChanged();
 	}
@@ -29,7 +31,7 @@ public class AdapterListUsers extends BaseAdapter implements Serializable {
 		return listUsuarios.size();
 	}
 
-	public Product getItem(int position) {
+	public Customer getItem(int position) {
 		return listUsuarios.get(position);
 	}
 
@@ -38,17 +40,17 @@ public class AdapterListUsers extends BaseAdapter implements Serializable {
 	}
 
 	public View getView(final int position, final View view, ViewGroup parent) {
-		final Product user = listUsuarios.get(position);
-		View v = mInflater.inflate(R.layout.item_cliente, null);
+		final Customer user = listUsuarios.get(position);
+		View v = mInflater.inflate(R.layout.item_customer, null);
 
-//		ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
+		// ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
 		TextView name = (TextView)v.findViewById(R.id.item_name);
-		TextView date = (TextView)v.findViewById(R.id.item_date);
-		TextView age = (TextView)v.findViewById(R.id.item_age);
-		
+		TextView city = (TextView)v.findViewById(R.id.item_city);
+		TextView uf = (TextView)v.findViewById(R.id.item_uf);
+
 		name.setText(user.getName());
-		date.setText(user.getStock());
-		age.setText(user.getValue());
+		city.setText(user.getCity());
+		uf.setText(user.getUf());
 
 		return v;
 	}

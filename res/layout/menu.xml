@@ -81,7 +81,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/menu_clientes"
+                android:id="@+id/menu_customer"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
@@ -93,6 +93,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/new_customer"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:background="@drawable/clientes_number"
@@ -113,7 +114,7 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/menu_produtos"
+                android:id="@+id/menu_products"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
@@ -125,6 +126,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/new_product"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:background="@drawable/produtos_number"
@@ -224,14 +226,14 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/menu_rate"
+                android:id="@+id/menu_grafico"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:background="#FEBA4D"
-                android:drawableLeft="@drawable/favorite"
+                android:drawableLeft="@drawable/chart"
                 android:paddingLeft="10dp"
-                android:text="Rate us"
+                android:text="Gráficos"
                 android:textColor="#fff"
                 android:textSize="22sp"
                 android:textStyle="bold" />

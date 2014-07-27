@@ -1,4 +1,4 @@
-package com.mmidgard.vendas;
+package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
 
@@ -14,13 +14,23 @@ public class Customer implements Serializable {
 	@DatabaseField
 	private String name;
 	@DatabaseField
-	private String address;
-	@DatabaseField
 	private String city;
 	@DatabaseField
 	private String uf;
 	@DatabaseField
+	private String number;
+	@DatabaseField
+	private String complement;
+	@DatabaseField
+	private String street;
+	@DatabaseField
 	private String obs;
+
+	public Customer(String name, String city, String uf) {
+		this.name = name;
+		this.city = city;
+		this.uf = uf;
+	}
 
 	public Customer() {
 	}
@@ -39,14 +49,6 @@ public class Customer implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public String getCity() {
@@ -71,6 +73,30 @@ public class Customer implements Serializable {
 
 	public void setObs(String obs) {
 		this.obs = obs;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getComplement() {
+		return complement;
+	}
+
+	public void setComplement(String complement) {
+		this.complement = complement;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 }

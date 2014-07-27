@@ -8,9 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.mmidgard.vendas.Category;
-import com.mmidgard.vendas.Customer;
-import com.mmidgard.vendas.Product;
+import com.mmidgard.vendas.entity.Category;
+import com.mmidgard.vendas.entity.Customer;
+import com.mmidgard.vendas.entity.Product;
 
 public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 	private static final String NOME_BD = "vendas.db";
