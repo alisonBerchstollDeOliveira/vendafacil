@@ -13,6 +13,7 @@ import com.mmidgard.vendas.list.ListCustomers;
 import com.mmidgard.vendas.list.ListProducts;
 import com.mmidgard.vendas.news.NewCustomer;
 import com.mmidgard.vendas.news.NewProduct;
+import com.mmidgard.vendas.news.NewSale;
 
 public class MenuInicial extends FragmentActivity {
 
@@ -20,6 +21,7 @@ public class MenuInicial extends FragmentActivity {
 	private Button newCustomer;
 	private Button listProducts;
 	private Button newProduct;
+	private Button newSale;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +37,17 @@ public class MenuInicial extends FragmentActivity {
 		newCustomer = (Button)findViewById(R.id.new_customer);
 		listProducts = (Button)findViewById(R.id.menu_products);
 		newProduct = (Button)findViewById(R.id.new_product);
+		newSale = (Button)findViewById(R.id.new_sale);
 
 		listCustomers.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(MenuInicial.this, ListCustomers.class);
 				startActivity(i);
 			}
 		});
-		
+
 		newCustomer.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -72,7 +75,14 @@ public class MenuInicial extends FragmentActivity {
 			}
 		});
 
+		newSale.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MenuInicial.this, NewSale.class);
+				startActivity(i);
+			}
+		});
 
 	}
 

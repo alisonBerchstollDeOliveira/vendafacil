@@ -33,8 +33,7 @@
         <activity android:name="com.mmidgard.vendas.news.NewCustomer" />
         <activity android:name="com.mmidgard.vendas.list.ListProducts" />
         <activity android:name="com.mmidgard.vendas.news.NewProduct" />
-        <activity android:name="com.mmidgard.vendas.list.ListCategories" />
-        <activity android:name="com.mmidgard.vendas.news.NewCategory" />
+        <activity android:name="com.mmidgard.vendas.news.NewSale" />
     </application>
 
 </manifest>

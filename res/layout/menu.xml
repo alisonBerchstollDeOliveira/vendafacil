@@ -160,7 +160,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/new_order"
+                android:id="@+id/new_sale"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:background="@drawable/categorias_number"
