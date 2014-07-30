@@ -86,10 +86,10 @@
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:background="#45CECE"
+                android:background="@drawable/clientes_cadastro"
                 android:paddingLeft="10dp"
                 android:text="Clientes"
-                android:textColor="#fff"
+                android:textColor="#3E3E3C"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
                 android:background="@drawable/clientes_number"
                 android:gravity="center"
                 android:text="+"
-                android:textColor="#45CECE"
+                android:textColor="#fff"
                 android:textSize="40sp" />
         </LinearLayout>
 
@@ -119,10 +119,10 @@
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:background="#2C71B5"
+                android:background="@drawable/clientes_cadastro"
                 android:paddingLeft="10dp"
                 android:text="Produtos"
-                android:textColor="#fff"
+                android:textColor="#3E3E3C"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -130,10 +130,10 @@
                 android:id="@+id/new_product"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:background="@drawable/produtos_number"
+                android:background="@drawable/clientes_number"
                 android:gravity="center"
                 android:text="+"
-                android:textColor="#2C71B5"
+                android:textColor="#fff"
                 android:textSize="40sp" />
         </LinearLayout>
 
@@ -152,10 +152,10 @@
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:background="#65549B"
+                android:background="@drawable/clientes_cadastro"
                 android:paddingLeft="10dp"
                 android:text="Vendas"
-                android:textColor="#fff"
+                android:textColor="#3E3E3C"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -163,10 +163,10 @@
                 android:id="@+id/new_sale"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:background="@drawable/categorias_number"
+                android:background="@drawable/clientes_number"
                 android:gravity="center"
                 android:text="+"
-                android:textColor="#65549B"
+                android:textColor="#fff"
                 android:textSize="40sp" />
         </LinearLayout>
 
@@ -265,16 +265,51 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
+
+            <Button
+                android:id="@+id/menu_relatorio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:background="#EA9245"
+                android:drawableLeft="@drawable/book"
+                android:paddingLeft="10dp"
+                android:text="Manual"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/menu_grafico"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:background="#EA9245"
+                android:drawableLeft="@drawable/config"
+                android:paddingLeft="10dp"
+                android:text="Configurações"
+                android:textColor="#fff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/menu_manual"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:background="#3E3E3C"
-        android:text="Manual"
-        android:textColor="#fff"
-        android:textSize="13sp"
-        android:textStyle="bold" />
+<!--     <Button -->
+<!--         android:id="@+id/menu_manual" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="40dp" -->
+<!--         android:background="#3E3E3C" -->
+<!--         android:text="Manual" -->
+<!--         android:textColor="#fff" -->
+<!--         android:textSize="13sp" -->
+<!--         android:textStyle="bold" /> -->
 
 </LinearLayout>

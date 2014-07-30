@@ -6,6 +6,7 @@
     android:padding="5dp" >
 
     <RadioButton
+        android:id="@+id/item_customer_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
@@ -19,7 +20,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/item_customer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lucas Rafagnin"
@@ -27,7 +28,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/item_city"
+            android:id="@+id/item_customer_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Francisco Beltrão"
@@ -35,7 +36,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/item_uf"
+        android:id="@+id/item_customer_uf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

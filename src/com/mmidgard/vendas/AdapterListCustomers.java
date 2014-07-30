@@ -44,9 +44,9 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 		View v = mInflater.inflate(R.layout.item_customer, null);
 
 		// ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
-		TextView name = (TextView)v.findViewById(R.id.item_name);
-		TextView city = (TextView)v.findViewById(R.id.item_city);
-		TextView uf = (TextView)v.findViewById(R.id.item_uf);
+		TextView name = (TextView)v.findViewById(R.id.item_customer_name);
+		TextView city = (TextView)v.findViewById(R.id.item_customer_city);
+		TextView uf = (TextView)v.findViewById(R.id.item_customer_uf);
 
 		name.setText(user.getName());
 		city.setText(user.getCity());

@@ -12,12 +12,12 @@ import android.widget.TextView;
 
 import com.mmidgard.vendas.entity.Product;
 
-public class AdapterListProducts extends BaseAdapter implements Serializable {
+public class AdapterListSaleProduct extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;
 	private LayoutInflater mInflater;
 	private List<Product> listProducts;
 
-	public AdapterListProducts(Context context, List<Product> itens) {
+	public AdapterListSaleProduct(Context context, List<Product> itens) {
 		this.listProducts = itens;
 		mInflater = LayoutInflater.from(context);
 	}
@@ -41,15 +41,13 @@ public class AdapterListProducts extends BaseAdapter implements Serializable {
 
 	public View getView(final int position, final View view, ViewGroup parent) {
 		final Product product = listProducts.get(position);
-		View v = mInflater.inflate(R.layout.item_product, null);
+		View v = mInflater.inflate(R.layout.item_sale_product, null);
 
 		TextView name = (TextView)v.findViewById(R.id.item_product_name);
-		TextView category = (TextView)v.findViewById(R.id.item_product_category);
 		TextView value = (TextView)v.findViewById(R.id.item_product_value);
 		TextView stock = (TextView)v.findViewById(R.id.item_product_stock);
 
 		name.setText(product.getName());
-		category.setText(product.getCategory().getName());
 		value.setText(String.valueOf(product.getCostPrice()));
 		stock.setText(product.getStock());
 

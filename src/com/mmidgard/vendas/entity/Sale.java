@@ -19,8 +19,6 @@ public class Sale {
 	private Date date;
 	@DatabaseField
 	private double discount;
-	@DatabaseField
-	private double priceFinal;
 
 	public Sale() {
 	}
@@ -63,14 +61,6 @@ public class Sale {
 
 	public void setDiscount(double discount) {
 		this.discount = discount;
-	}
-
-	public double getPriceFinal() {
-		return priceFinal;
-	}
-
-	public void setPriceFinal(double priceFinal) {
-		this.priceFinal = priceFinal;
 	}
 
 }

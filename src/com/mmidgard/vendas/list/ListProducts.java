@@ -49,11 +49,11 @@ public class ListProducts extends Activity {
 	private void updateList() {
 		listProduct = new ArrayList<Product>();
 		Product p;
-		p = new Product("Nome produto1", "3", "R$ 10,00", new Category("Categoria1"));
+		p = new Product("Nome produto1", "3", 10, new Category("Categoria1"));
 		listProduct.add(p);
-		p = new Product("Nome produto2", "25", "R$ 20,00", new Category("Categoria2"));
+		p = new Product("Nome produto2", "25", 20, new Category("Categoria2"));
 		listProduct.add(p);
-		p = new Product("Nome produto3", "10", "R$ 15,00", new Category("Categoria2"));
+		p = new Product("Nome produto3", "10", 15.00, new Category("Categoria2"));
 		listProduct.add(p);
 
 		adapterList = new AdapterListProducts(ListProducts.this, listProduct);

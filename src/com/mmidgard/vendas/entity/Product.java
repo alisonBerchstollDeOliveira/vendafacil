@@ -1,6 +1,7 @@
 package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -18,19 +19,23 @@ public class Product implements Serializable {
 	@DatabaseField
 	private String stock;
 	@DatabaseField
-	private String value;
+	private double costPrice;
 	@DatabaseField
 	private String type;
 	@DatabaseField
 	private Category category;
+	@DatabaseField
+	private Provider provider;
+	@DatabaseField
+	private List<Sale> sales;
 
 	public Product() {
 	}
 
-	public Product(String name, String stock, String value, Category c) {
+	public Product(String name, String stock, double value, Category c) {
 		this.name = name;
 		this.stock = stock;
-		this.value = value;
+		this.costPrice = value;
 		this.category = c;
 	}
 
@@ -50,12 +55,12 @@ public class Product implements Serializable {
 		this.stock = stock;
 	}
 
-	public String getValue() {
-		return value;
+	public double getCostPrice() {
+		return costPrice;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setCostPrice(double costPrice) {
+		this.costPrice = costPrice;
 	}
 
 	public int getId() {
