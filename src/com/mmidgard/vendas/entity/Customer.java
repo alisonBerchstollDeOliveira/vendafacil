@@ -9,14 +9,14 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1329706785233549101L;
-	@DatabaseField(id = true)
+	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField
 	private String name;
 	@DatabaseField
 	private String phone;
 	@DatabaseField
-	private String mobilePhone;
+	private String cellPhone;
 	@DatabaseField
 	private String city;
 	@DatabaseField
@@ -113,12 +113,12 @@ public class Customer implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getMobilePhone() {
-		return mobilePhone;
+	public String getCellPhone() {
+		return cellPhone;
 	}
 
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
 	}
 
 //	public Collection<Sale> getSales() {

@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 
+import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.list.ListCustomers;
 import com.mmidgard.vendas.list.ListProducts;
 import com.mmidgard.vendas.news.NewCustomer;
@@ -16,6 +17,11 @@ import com.mmidgard.vendas.news.NewProduct;
 import com.mmidgard.vendas.news.NewSale;
 
 public class MenuInicial extends FragmentActivity {
+
+	// Header
+	private Button countCustomers;
+	private Button countProducts;
+	private Button countSales;
 
 	private Button listCustomers;
 	private Button newCustomer;
@@ -30,6 +36,19 @@ public class MenuInicial extends FragmentActivity {
 		setContentView(R.layout.menu);
 
 		getValues();
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		setCountsHeader();
+	}
+
+	private void setCountsHeader() {
+		countCustomers = (Button)findViewById(R.id.count_customers);
+		CustomerDAO cdao = new CustomerDAO(MenuInicial.this);
+		countCustomers.setText(String.valueOf(cdao.getCount()));
+		cdao.close();
 	}
 
 	public void getValues() {
