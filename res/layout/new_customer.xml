@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mask="http://schemas.android.com/apk/res/com.mmidgard.vendas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,6 +13,7 @@
         android:orientation="horizontal" >
 
         <ImageButton
+            android:id="@+id/customer_new_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -30,6 +32,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/customer_new_name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -53,9 +56,12 @@
                 android:text="Telefone:"
                 android:textSize="20sp" />
 
-            <EditText
+            <com.mmidgard.vendas.PhoneEditText
+                android:id="@+id/customer_new_phone"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" 
+                android:inputType="phone"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -71,9 +77,12 @@
                 android:text="Celular:"
                 android:textSize="20sp" />
 
-            <EditText
+           <com.mmidgard.vendas.PhoneEditText
+                android:id="@+id/customer_new_cellphone"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" 
+                android:inputType="phone"
+                />
         </LinearLayout>
     </LinearLayout>
 
@@ -96,6 +105,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/customer_new_city"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -113,6 +123,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/customer_new_uf"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:inputType="textCapCharacters"
@@ -138,6 +149,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/customer_new_street"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp" />
@@ -157,6 +169,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/customer_new_number"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
@@ -170,6 +183,7 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/customer_new_complement"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp" />
@@ -181,6 +195,7 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/customer_new_obs"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp" />
@@ -207,6 +222,7 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

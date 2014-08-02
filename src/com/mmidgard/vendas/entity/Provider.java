@@ -1,7 +1,7 @@
 package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -17,7 +17,7 @@ public class Provider implements Serializable{
 	@DatabaseField
 	private String description;
 	@DatabaseField
-	private List<Product> products;
+	private Collection<Product> products;
 
 	public int getId() {
 		return id;
@@ -43,11 +43,11 @@ public class Provider implements Serializable{
 		this.description = description;
 	}
 
-	public List<Product> getProducts() {
+	public Collection<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(Collection<Product> products) {
 		this.products = products;
 	}
 

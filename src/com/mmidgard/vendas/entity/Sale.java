@@ -1,7 +1,7 @@
 package com.mmidgard.vendas.entity;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -12,7 +12,7 @@ public class Sale {
 	@DatabaseField(id = true)
 	private int id;
 	@DatabaseField
-	private List<Product> products;
+	private Collection<Product> products;
 	@DatabaseField
 	private Customer customer;
 	@DatabaseField
@@ -31,11 +31,11 @@ public class Sale {
 		this.id = id;
 	}
 
-	public List<Product> getProducts() {
+	public Collection<Product> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(Collection<Product> products) {
 		this.products = products;
 	}
 
