@@ -1,5 +1,8 @@
 package com.mmidgard.vendas.news;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,6 +14,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,7 +35,7 @@ public class NewCustomer extends Activity {
 	private EditText name;
 	private PhoneEditText phone;
 	private PhoneEditText cellPhone;
-	private EditText city;
+	private AutoCompleteTextView city;
 	private EditText uf;
 	private EditText street;
 	private EditText number;
@@ -53,7 +58,7 @@ public class NewCustomer extends Activity {
 		name = (EditText)findViewById(R.id.customer_new_name);
 		phone = (PhoneEditText)findViewById(R.id.customer_new_phone);
 		cellPhone = (PhoneEditText)findViewById(R.id.customer_new_cellphone);
-		city = (EditText)findViewById(R.id.customer_new_city);
+		city = (AutoCompleteTextView)findViewById(R.id.customer_new_city);
 		uf = (EditText)findViewById(R.id.customer_new_uf);
 		street = (EditText)findViewById(R.id.customer_new_street);
 		number = (EditText)findViewById(R.id.customer_new_number);
@@ -61,6 +66,8 @@ public class NewCustomer extends Activity {
 		obs = (EditText)findViewById(R.id.customer_new_obs);
 		cancel = (Button)findViewById(R.id.cancel);
 		save = (Button)findViewById(R.id.save);
+
+		citysBD();
 
 		photo.setOnClickListener(new OnClickListener() {
 
@@ -104,6 +111,18 @@ public class NewCustomer extends Activity {
 				}
 			}
 		});
+	}
+
+	private void citysBD() {
+		CustomerDAO cdao = new CustomerDAO(getApplicationContext());
+		List<String> citys = new ArrayList<String>();
+		for (Customer c : cdao.getAll()) {
+			if (!citys.contains(c.getCity()))
+				citys.add(c.getCity());
+		}
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, citys);
+		city.setAdapter(adapter);
 	}
 
 	private boolean validate() {
