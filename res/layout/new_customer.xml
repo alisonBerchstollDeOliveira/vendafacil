@@ -38,7 +38,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="textCapSentences"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -113,7 +113,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="textCapSentences" />
         </LinearLayout>
 
         <LinearLayout
@@ -162,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="textCapSentences" />
         </LinearLayout>
 
         <LinearLayout
@@ -183,7 +183,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="number" />
+               android:inputType="textCapSentences" />
         </LinearLayout>
     </LinearLayout>
 
@@ -199,7 +199,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:imeOptions="actionNext"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -212,7 +212,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <View
         android:layout_width="wrap_content"

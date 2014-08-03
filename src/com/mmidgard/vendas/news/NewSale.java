@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.mmidgard.vendas.AdapterListSaleCustomer;
 import com.mmidgard.vendas.AdapterListSaleProduct;
 import com.mmidgard.vendas.R;
-import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.entity.Product;
 

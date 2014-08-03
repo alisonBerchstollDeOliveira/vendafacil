@@ -36,7 +36,6 @@ public class NewProduct extends Activity {
 	private String pathPhoto = "";
 	private ImageButton addCategory;
 	private ImageButton addProvider;
-	private TextView categoryText;
 	private Dialog dialog;
 	private TextView titulo;
 	private Button ok;
@@ -180,7 +179,6 @@ public class NewProduct extends Activity {
 		dialog.show();
 
 		titulo = (TextView)dialog.findViewById(R.id.category_new_title);
-		categoryText = (TextView)dialog.findViewById(R.id.category_new_text);
 		ok = (Button)dialog.findViewById(R.id.category_new_ok);
 	}
 
