@@ -107,6 +107,7 @@ public class NewCustomer extends Activity {
 
 					cdao.close();
 
+					setResult(1);
 					finish();
 				}
 			}
