@@ -1,5 +1,7 @@
 package com.mmidgard.vendas.news;
 
+import java.text.NumberFormat;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,7 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
-import android.text.Selection;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -150,6 +152,7 @@ public class NewProduct extends Activity {
 		});
 
 		price.addTextChangedListener(tw);
+		price.setInputType(InputType.TYPE_CLASS_NUMBER);
 	}
 
 	private boolean validate() {
@@ -183,36 +186,48 @@ public class NewProduct extends Activity {
 
 	TextWatcher tw = new TextWatcher() {
 
+		private boolean isUpdating = false;
+		// Pega a formatacao do sistema, se for brasil R$ se EUA US$
+		private NumberFormat nf = NumberFormat.getCurrencyInstance();
+
 		@Override
-		public void onTextChanged(CharSequence s, int start, int before, int count) {
+		public void onTextChanged(CharSequence s, int start, int before, int after) {
+			// Evita que o método seja executado varias vezes.
+			// Se tirar ele entre em loop
+			if (isUpdating) {
+				isUpdating = false;
+				return;
+			}
+
+			isUpdating = true;
+			String str = s.toString();
+			// Verifica se já existe a máscara no texto.
+			boolean hasMask = ((str.indexOf("R$") > -1 || str.indexOf("$") > -1) && (str.indexOf(".") > -1 || str.indexOf(",") > -1));
+			// Verificamos se existe máscara
+			if (hasMask) {
+				// Retiramos a máscara.
+				str = str.replaceAll("[R$]", "").replaceAll("[,]", "").replaceAll("[.]", "");
+			}
+
+			try {
+				// Transformamos o número que está escrito no EditText em
+				// monetário.
+				str = nf.format(Double.parseDouble(str) / 100);
+				price.setText(str);
+				price.setSelection(price.getText().length());
+			} catch (NumberFormatException e) {
+				s = "";
+			}
 		}
 
 		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			// Não utilizamos
 		}
 
 		@Override
 		public void afterTextChanged(Editable s) {
-			if (!s.toString().matches("^\\$(\\d{1,3}(\\.\\d{3})*|(\\d+))(\\.\\d{2})?$")) {
-				String userInput = "" + s.toString().replaceAll("[^\\d]", "");
-				StringBuilder cashAmountBuilder = new StringBuilder(userInput);
-
-				while (cashAmountBuilder.length() > 3 && cashAmountBuilder.charAt(0) == '0') {
-					cashAmountBuilder.deleteCharAt(0);
-				}
-				while (cashAmountBuilder.length() < 3) {
-					cashAmountBuilder.insert(0, '0');
-				}
-				cashAmountBuilder.insert(cashAmountBuilder.length() - 2, '.');
-
-				price.removeTextChangedListener(this);
-				price.setText(cashAmountBuilder.toString());
-
-				price.setTextKeepState("R$ " + cashAmountBuilder.toString());
-				Selection.setSelection(price.getText(), cashAmountBuilder.toString().length() + 1);
-
-				price.addTextChangedListener(this);
-			}
+			// Não utilizamos
 		}
 	};
 
