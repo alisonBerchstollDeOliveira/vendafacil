@@ -1,6 +1,5 @@
 package com.mmidgard.vendas;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,10 +15,7 @@ import com.mmidgard.vendas.news.NewCustomer;
 import com.mmidgard.vendas.news.NewProduct;
 import com.mmidgard.vendas.news.NewSale;
 
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-
-public class MenuInicial extends Activity {
+public class MenuInicial extends GlobalActivity {
 
 	// Header
 	private Button countCustomers;
@@ -39,13 +35,6 @@ public class MenuInicial extends Activity {
 		setContentView(R.layout.menu);
 
 		getValues();
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == 1 && resultCode == 1)
-			Crouton.makeText(MenuInicial.this, "Cliente inserido com sucesso!", Style.INFO).show();
 	}
 
 	@Override

@@ -1,13 +1,17 @@
 package com.mmidgard.vendas;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mmidgard.vendas.entity.Customer;
@@ -43,10 +47,16 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 		final Customer user = listCustomers.get(position);
 		View v = mInflater.inflate(R.layout.item_customer, null);
 
-		// ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
+		ImageView photo = (ImageView)v.findViewById(R.id.item_photo);
 		TextView name = (TextView)v.findViewById(R.id.item_customer_name);
 		TextView city = (TextView)v.findViewById(R.id.item_customer_city);
 		TextView uf = (TextView)v.findViewById(R.id.item_customer_uf);
+
+		String url = user.getPathPhoto();
+		if (!url.isEmpty() && new File(url).exists()) {
+			Bitmap bMap = BitmapFactory.decodeFile(url);
+			photo.setImageBitmap(bMap);
+		}
 
 		name.setText(user.getName());
 		city.setText(user.getCity());

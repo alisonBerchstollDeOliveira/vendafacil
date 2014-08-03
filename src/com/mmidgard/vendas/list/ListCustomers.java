@@ -3,7 +3,6 @@ package com.mmidgard.vendas.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +12,13 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.mmidgard.vendas.AdapterListCustomers;
+import com.mmidgard.vendas.GlobalActivity;
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.news.NewCustomer;
 
-public class ListCustomers extends Activity {
+public class ListCustomers extends GlobalActivity {
 
 	private AdapterListCustomers adapterList;
 	private ListView listview;
@@ -38,8 +38,7 @@ public class ListCustomers extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(ListCustomers.this, NewCustomer.class);
-				startActivity(i);
-				finish();
+				startActivityForResult(i, 1);
 			}
 		});
 

@@ -31,6 +31,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 public class NewCustomer extends Activity {
 
 	protected static final int RESULT_LOAD_IMAGE = 1;
+	private String pathPhoto = "";
 	private ImageView photo;
 	private EditText name;
 	private PhoneEditText phone;
@@ -93,6 +94,7 @@ public class NewCustomer extends Activity {
 				if (validate()) {
 					CustomerDAO cdao = new CustomerDAO(getApplicationContext());
 					Customer customer = new Customer();
+					customer.setPathPhoto(pathPhoto);
 					customer.setName(name.getText().toString());
 					customer.setPhone(phone.getText().toString());
 					customer.setCellPhone(cellPhone.getText().toString());
@@ -151,10 +153,10 @@ public class NewCustomer extends Activity {
 			cursor.moveToFirst();
 
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-			String picturePath = cursor.getString(columnIndex);
+			pathPhoto = cursor.getString(columnIndex);
 			cursor.close();
 
-			Bitmap bMap = BitmapFactory.decodeFile(picturePath);
+			Bitmap bMap = BitmapFactory.decodeFile(pathPhoto);
 
 			photo.setImageBitmap(bMap);
 		}

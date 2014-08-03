@@ -12,6 +12,8 @@ public class Customer implements Serializable {
 	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField
+	private String pathPhoto;
+	@DatabaseField
 	private String name;
 	@DatabaseField
 	private String phone;
@@ -119,6 +121,14 @@ public class Customer implements Serializable {
 
 	public void setCellPhone(String cellPhone) {
 		this.cellPhone = cellPhone;
+	}
+
+	public String getPathPhoto() {
+		return pathPhoto;
+	}
+
+	public void setPathPhoto(String pathPhoto) {
+		this.pathPhoto = pathPhoto;
 	}
 
 //	public Collection<Sale> getSales() {
