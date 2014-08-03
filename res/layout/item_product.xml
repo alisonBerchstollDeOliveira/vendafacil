@@ -6,7 +6,7 @@
     android:padding="5dp" >
 
     <ImageView
-        android:id="@+id/item_product_photo"
+        android:id="@+id/item_photo"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"

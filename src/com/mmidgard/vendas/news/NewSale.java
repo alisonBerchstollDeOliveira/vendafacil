@@ -97,11 +97,11 @@ public class NewSale extends Activity {
 	private void updateListProducts() {
 		listProduct = new ArrayList<Product>();
 		Product p;
-		p = new Product("Nome produto1", "3", 10.00, new Category("Categoria1"));
+		p = new Product("Nome produto1", "3", "10.00");
 		listProduct.add(p);
-		p = new Product("Nome produto2", "25", 20.00, new Category("Categoria2"));
+		p = new Product("Nome produto2", "25", "20.00");
 		listProduct.add(p);
-		p = new Product("Nome produto3", "10", 15.00, new Category("Categoria2"));
+		p = new Product("Nome produto3", "10", "15.00");
 		listProduct.add(p);
 
 		adapterListProduct = new AdapterListSaleProduct(NewSale.this, listProduct);

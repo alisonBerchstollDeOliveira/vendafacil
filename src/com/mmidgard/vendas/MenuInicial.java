@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.mmidgard.vendas.dao.CustomerDAO;
+import com.mmidgard.vendas.dao.ProductDAO;
 import com.mmidgard.vendas.list.ListCustomers;
 import com.mmidgard.vendas.list.ListProducts;
 import com.mmidgard.vendas.news.NewCustomer;
@@ -45,9 +46,15 @@ public class MenuInicial extends GlobalActivity {
 
 	private void setCountsHeader() {
 		countCustomers = (Button)findViewById(R.id.count_customers);
+		countProducts = (Button)findViewById(R.id.count_products);
+		
 		CustomerDAO cdao = new CustomerDAO(MenuInicial.this);
 		countCustomers.setText(String.valueOf(cdao.getCount()));
 		cdao.close();
+		
+		ProductDAO pdao = new ProductDAO(MenuInicial.this);
+		countProducts.setText(String.valueOf(pdao.getCount()));
+		pdao.close();
 	}
 
 	public void getValues() {
@@ -89,7 +96,7 @@ public class MenuInicial extends GlobalActivity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(MenuInicial.this, NewProduct.class);
-				startActivity(i);
+				startActivityForResult(i, 2);
 			}
 		});
 

@@ -11,11 +11,14 @@
         android:layout_marginBottom="5dp"
         android:orientation="horizontal" >
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/product_new_photo"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:background="#D6D6D6"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             android:src="@drawable/cam" />
 
         <LinearLayout
@@ -24,12 +27,14 @@
             android:orientation="vertical" >
 
             <TextView
+                android:layout_marginLeft="5dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Código:"
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/product_new_code"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -42,6 +47,7 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/product_new_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp" />
@@ -53,6 +59,7 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/product_new_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp" />
@@ -96,6 +103,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/product_new_stock"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
@@ -120,6 +128,7 @@
                 android:textSize="20sp" />
 
             <Spinner
+                android:id="@+id/product_new_category"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp" />
@@ -150,6 +159,7 @@
                 android:textSize="20sp" />
 
             <Spinner
+                android:id="@+id/product_new_provider"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp" />
@@ -184,6 +194,7 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

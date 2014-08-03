@@ -12,5 +12,7 @@ public class GlobalActivity extends Activity{
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == 1 && resultCode == 1)
 			Crouton.makeText(GlobalActivity.this, "Cliente inserido com sucesso!", Style.INFO).show();
+		if (requestCode == 2 && resultCode == 2)
+			Crouton.makeText(GlobalActivity.this, "Produto inserido com sucesso!", Style.INFO).show();
 	}
 }

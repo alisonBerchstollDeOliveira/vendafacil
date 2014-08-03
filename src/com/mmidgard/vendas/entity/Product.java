@@ -9,8 +9,10 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 198661379875270618L;
-	@DatabaseField(id = true)
+	@DatabaseField(generatedId = true)
 	private int id;
+	@DatabaseField
+	private String pathPhoto;
 	@DatabaseField
 	private String code;
 	@DatabaseField
@@ -18,13 +20,15 @@ public class Product implements Serializable {
 	@DatabaseField
 	private String description;
 	@DatabaseField
-	private double costPrice;
+	private String costPrice;
 	@DatabaseField
 	private String stock;
-	@DatabaseField
-	private Category category;
-	@DatabaseField
-	private Provider provider;
+
+	// @DatabaseField(columnName = "category", foreign = true)
+	// private Category category;
+
+	// @DatabaseField(columnName = "provider", foreign = true)
+	// private Provider provider;
 
 	// @DatabaseField
 	// private Collection<Sale> sales;
@@ -32,11 +36,10 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
-	public Product(String name, String stock, double value, Category c) {
+	public Product(String name, String stock, String value) {
 		this.name = name;
 		this.stock = stock;
 		this.costPrice = value;
-		this.category = c;
 	}
 
 	public String getName() {
@@ -55,11 +58,11 @@ public class Product implements Serializable {
 		this.stock = stock;
 	}
 
-	public double getCostPrice() {
+	public String getCostPrice() {
 		return costPrice;
 	}
 
-	public void setCostPrice(double costPrice) {
+	public void setCostPrice(String costPrice) {
 		this.costPrice = costPrice;
 	}
 
@@ -79,14 +82,6 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public String getCode() {
 		return code;
 	}
@@ -95,13 +90,21 @@ public class Product implements Serializable {
 		this.code = code;
 	}
 
-	public Provider getProvider() {
-		return provider;
+	public String getPathPhoto() {
+		return pathPhoto;
 	}
 
-	public void setProvider(Provider provider) {
-		this.provider = provider;
+	public void setPathPhoto(String pathPhoto) {
+		this.pathPhoto = pathPhoto;
 	}
+	
+	// public Provider getProvider() {
+	// return provider;
+	// }
+	//
+	// public void setProvider(Provider provider) {
+	// this.provider = provider;
+	// }
 
 	// public Collection<Sale> getSales() {
 	// return sales;

@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 import com.mmidgard.vendas.AdapterListProducts;
 import com.mmidgard.vendas.R;
-import com.mmidgard.vendas.entity.Category;
+import com.mmidgard.vendas.dao.ProductDAO;
 import com.mmidgard.vendas.entity.Product;
 import com.mmidgard.vendas.news.NewProduct;
 
@@ -48,14 +48,9 @@ public class ListProducts extends Activity {
 
 	private void updateList() {
 		listProduct = new ArrayList<Product>();
-		Product p;
-		p = new Product("Nome produto1", "3", 10, new Category("Categoria1"));
-		listProduct.add(p);
-		p = new Product("Nome produto2", "25", 20, new Category("Categoria2"));
-		listProduct.add(p);
-		p = new Product("Nome produto3", "10", 15.00, new Category("Categoria2"));
-		listProduct.add(p);
-
+		ProductDAO cdao = new ProductDAO(getApplicationContext());
+		listProduct = cdao.getAll();
+//		Collections.sort(listProduct, Customer.getComparatorName());
 		adapterList = new AdapterListProducts(ListProducts.this, listProduct);
 		listview.setAdapter(adapterList);
 	}
