@@ -4,5 +4,7 @@
     <string name="app_name">Venda+</string>
     <string name="hello_world">Hello world!</string>
     <string name="app_id">782337755144319</string>
+    
+    <string name="customer_name">O nome não pode ficar vazio.</string>
 
 </resources>

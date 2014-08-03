@@ -15,10 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.mmidgard.vendas.MenuInicial;
 import com.mmidgard.vendas.PhoneEditText;
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.entity.Customer;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class NewCustomer extends Activity {
 
@@ -80,22 +84,35 @@ public class NewCustomer extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				CustomerDAO cdao = new CustomerDAO(getApplicationContext());
-				Customer customer = new Customer();
-				customer.setName(name.getText().toString());
-				customer.setPhone(phone.getText().toString());
-				customer.setCellPhone(cellPhone.getText().toString());
-				customer.setCity(city.getText().toString());
-				customer.setUf(uf.getText().toString());
-				customer.setNumber(number.getText().toString());
-				customer.setComplement(complement.getText().toString());
-				customer.setStreet(street.getText().toString());
-				customer.setObs(obs.getText().toString());
+				if (validate()) {
+					CustomerDAO cdao = new CustomerDAO(getApplicationContext());
+					Customer customer = new Customer();
+					customer.setName(name.getText().toString());
+					customer.setPhone(phone.getText().toString());
+					customer.setCellPhone(cellPhone.getText().toString());
+					customer.setCity(city.getText().toString());
+					customer.setUf(uf.getText().toString());
+					customer.setNumber(number.getText().toString());
+					customer.setComplement(complement.getText().toString());
+					customer.setStreet(street.getText().toString());
+					customer.setObs(obs.getText().toString());
 
-				cdao.insert(customer);
-				cdao.close();
+					cdao.insert(customer);
+
+					cdao.close();
+
+					finish();
+				}
 			}
 		});
+	}
+
+	private boolean validate() {
+		if (name.getText().toString().isEmpty()) {
+			Crouton.makeText(NewCustomer.this, "Campo nome é obrigatório!", Style.ALERT).show();
+			return false;
+		}
+		return true;
 	}
 
 	@Override

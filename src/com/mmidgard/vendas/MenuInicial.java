@@ -1,9 +1,9 @@
 package com.mmidgard.vendas;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -16,7 +16,10 @@ import com.mmidgard.vendas.news.NewCustomer;
 import com.mmidgard.vendas.news.NewProduct;
 import com.mmidgard.vendas.news.NewSale;
 
-public class MenuInicial extends FragmentActivity {
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
+public class MenuInicial extends Activity {
 
 	// Header
 	private Button countCustomers;
@@ -36,6 +39,13 @@ public class MenuInicial extends FragmentActivity {
 		setContentView(R.layout.menu);
 
 		getValues();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == 1)
+			Crouton.makeText(MenuInicial.this, "Cliente inserido com sucesso!", Style.INFO).show();
 	}
 
 	@Override
@@ -72,7 +82,7 @@ public class MenuInicial extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(MenuInicial.this, NewCustomer.class);
-				startActivity(i);
+				startActivityForResult(i, 1);
 			}
 		});
 
