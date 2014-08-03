@@ -36,18 +36,34 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/item_customer_uf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!-- <TextView -->
+    <!-- android:id="@+id/item_customer_uf" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_gravity="center" -->
+    <!-- android:background="@drawable/stock" -->
+    <!-- android:paddingBottom="5dp" -->
+    <!-- android:paddingLeft="7dp" -->
+    <!-- android:paddingRight="7dp" -->
+    <!-- android:paddingTop="5dp" -->
+    <!-- android:text="PR" -->
+    <!-- android:textColor="#fff" -->
+    <!-- android:textStyle="bold" /> -->
+
+    <ImageView
+        android:id="@+id/customer_list_sales"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
-        android:background="@drawable/stock"
-        android:paddingBottom="5dp"
-        android:paddingLeft="7dp"
-        android:paddingRight="7dp"
-        android:paddingTop="5dp"
-        android:text="PR"
-        android:textColor="#fff"
-        android:textStyle="bold" />
+        android:layout_marginRight="5dp"
+        android:src="@drawable/list_sale" />
+
+    <ImageView
+        android:id="@+id/customer_edit"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/edit_customer" />
 
 </LinearLayout>

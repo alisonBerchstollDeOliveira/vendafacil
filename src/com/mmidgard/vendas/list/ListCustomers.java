@@ -30,7 +30,11 @@ public class ListCustomers extends GlobalActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.list_customers);
+	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
 		listview = (ListView)findViewById(R.id.list_customers);
 		newCustomer = (Button)findViewById(R.id.new_);
 		newCustomer.setOnClickListener(new OnClickListener() {

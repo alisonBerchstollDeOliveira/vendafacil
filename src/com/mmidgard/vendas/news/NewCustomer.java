@@ -44,6 +44,8 @@ public class NewCustomer extends Activity {
 	private EditText obs;
 	private Button cancel;
 	private Button save;
+	private boolean edit = false;
+	private Customer customer;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,37 @@ public class NewCustomer extends Activity {
 		setContentView(R.layout.new_customer);
 
 		buttonsClicks();
+
+		Bundle b = getIntent().getExtras();
+		if (b != null) {
+			if (b.get("customer") != null) {
+				customer = (Customer)b.get("customer");
+				setValues(customer);
+			}
+		} else {
+			customer = new Customer();
+		}
+
+	}
+
+	private void setValues(Customer customer) {
+		pathPhoto = customer.getPathPhoto();
+		Bitmap bMap = BitmapFactory.decodeFile(pathPhoto);
+		if (bMap != null)
+			photo.setImageBitmap(bMap);
+
+		name.setText(customer.getName());
+		phone.setText(customer.getPhone());
+		cellPhone.setText(customer.getCellPhone());
+		city.setText(customer.getCity());
+		uf.setText(customer.getUf());
+		street.setText(customer.getStreet());
+		number.setText(customer.getNumber());
+		complement.setText(customer.getComplement());
+		obs.setText(customer.getObs());
+		save.setText("Editar");
+
+		edit = true;
 	}
 
 	private void buttonsClicks() {
@@ -93,7 +126,6 @@ public class NewCustomer extends Activity {
 			public void onClick(View v) {
 				if (validate()) {
 					CustomerDAO cdao = new CustomerDAO(getApplicationContext());
-					Customer customer = new Customer();
 					customer.setPathPhoto(pathPhoto);
 					customer.setName(name.getText().toString());
 					customer.setPhone(phone.getText().toString());
@@ -105,7 +137,10 @@ public class NewCustomer extends Activity {
 					customer.setStreet(street.getText().toString());
 					customer.setObs(obs.getText().toString());
 
-					cdao.insert(customer);
+					if (edit)
+						cdao.update(customer);
+					else
+						cdao.insert(customer);
 
 					cdao.close();
 
