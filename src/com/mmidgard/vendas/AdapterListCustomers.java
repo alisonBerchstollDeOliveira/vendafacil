@@ -50,7 +50,10 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 
 		name.setText(user.getName());
 		city.setText(user.getCity());
-		uf.setText(user.getUf());
+		if (user.getUf().isEmpty())
+			uf.setVisibility(View.GONE);
+		else
+			uf.setText(user.getUf());
 
 		return v;
 	}

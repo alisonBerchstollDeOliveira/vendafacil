@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.mmidgard.vendas.AdapterListCustomers;
 import com.mmidgard.vendas.R;
+import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.news.NewCustomer;
 
@@ -47,13 +48,8 @@ public class ListCustomers extends Activity {
 
 	private void updateList() {
 		listCustomers = new ArrayList<Customer>();
-		Customer u;
-		u = new Customer("Lucas Rafagnin", "Francisco Beltrão", "PR");
-		listCustomers.add(u);
-		u = new Customer("Ronaldo Simões", "Rio de Janeiro", "RJ");
-		listCustomers.add(u);
-		u = new Customer("Alexandre Silva", "São Paulo", "SP");
-		listCustomers.add(u);
+		CustomerDAO cdao = new CustomerDAO(getApplicationContext());
+		listCustomers = cdao.getAll();
 
 		adapterList = new AdapterListCustomers(ListCustomers.this, listCustomers);
 		listview.setAdapter(adapterList);
