@@ -6,8 +6,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +16,7 @@ import android.widget.TextView;
 
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.news.NewCustomer;
+import com.squareup.picasso.Picasso;
 
 public class AdapterListCustomers extends BaseAdapter implements Serializable {
 	private static final long serialVersionUID = 5919068504936794402L;
@@ -59,8 +58,9 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 
 		String url = customer.getPathPhoto();
 		if (!url.isEmpty() && new File(url).exists()) {
-			Bitmap bMap = BitmapFactory.decodeFile(url);
-			photo.setImageBitmap(bMap);
+//			Bitmap bMap = BitmapFactory.decodeFile(url);
+//			photo.setImageBitmap(bMap);
+			 Picasso.with(context).load(new File(url)).into(photo);
 		}
 
 		name.setText(customer.getName());

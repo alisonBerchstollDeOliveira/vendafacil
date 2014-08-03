@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Pesquisar..."
-            android:focusable="false" />
+            />
 
         <Spinner
             android:id="@+id/customers_order"

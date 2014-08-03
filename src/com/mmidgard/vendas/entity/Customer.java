@@ -1,6 +1,7 @@
 package com.mmidgard.vendas.entity;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -31,8 +32,9 @@ public class Customer implements Serializable {
 	private String street;
 	@DatabaseField
 	private String obs;
-//	@DatabaseField
-//	private Collection<Sale> sales;
+
+	// @DatabaseField
+	// private Collection<Sale> sales;
 
 	public Customer(String name, String city, String uf) {
 		this.name = name;
@@ -131,14 +133,13 @@ public class Customer implements Serializable {
 		this.pathPhoto = pathPhoto;
 	}
 
-//	public Collection<Sale> getSales() {
-//		return sales;
-//	}
-//
-//	public void setSales(Collection<Sale> sales) {
-//		this.sales = sales;
-//	}
-	
-	
+	public static Comparator<Customer> getComparatorName() {
+		return new Comparator<Customer>() {
+			@Override
+			public int compare(Customer c1, Customer c2) {
+				return c1.getName().compareToIgnoreCase(c2.getName());
+			}
+		};
+	}
 
 }
