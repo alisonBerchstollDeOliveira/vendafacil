@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.mmidgard.vendas.MenuInicial;
 import com.mmidgard.vendas.PhoneEditText;
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.dao.CustomerDAO;
@@ -110,6 +109,12 @@ public class NewCustomer extends Activity {
 	private boolean validate() {
 		if (name.getText().toString().isEmpty()) {
 			Crouton.makeText(NewCustomer.this, "Campo nome é obrigatório!", Style.ALERT).show();
+			return false;
+		} else if (city.getText().toString().isEmpty()) {
+			Crouton.makeText(NewCustomer.this, "Campo cidade é obrigatório!", Style.ALERT).show();
+			return false;
+		} else if (uf.getText().toString().isEmpty()) {
+			Crouton.makeText(NewCustomer.this, "Campo UF é obrigatório!", Style.ALERT).show();
 			return false;
 		}
 		return true;
