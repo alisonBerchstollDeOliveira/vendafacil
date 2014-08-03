@@ -33,7 +33,9 @@
             <EditText
                 android:id="@+id/customer_new_name"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
         </LinearLayout>
     </LinearLayout>
 
@@ -58,9 +60,9 @@
             <com.mmidgard.vendas.PhoneEditText
                 android:id="@+id/customer_new_phone"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" 
-                android:inputType="phone"
-                />
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="phone" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,12 +78,12 @@
                 android:text="Celular:"
                 android:textSize="20sp" />
 
-           <com.mmidgard.vendas.PhoneEditText
+            <com.mmidgard.vendas.PhoneEditText
                 android:id="@+id/customer_new_cellphone"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" 
-                android:inputType="phone"
-                />
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="phone" />
         </LinearLayout>
     </LinearLayout>
 
@@ -106,7 +108,9 @@
             <AutoCompleteTextView
                 android:id="@+id/customer_new_city"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -118,6 +122,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:text="UF:"
                 android:textSize="20sp" />
 
@@ -125,6 +130,7 @@
                 android:id="@+id/customer_new_uf"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
                 android:inputType="textCapCharacters"
                 android:maxLength="2" />
         </LinearLayout>
@@ -151,7 +157,9 @@
                 android:id="@+id/customer_new_street"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,6 +179,7 @@
                 android:id="@+id/customer_new_number"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
                 android:inputType="number" />
         </LinearLayout>
     </LinearLayout>
@@ -185,7 +194,9 @@
         android:id="@+id/customer_new_complement"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:imeOptions="actionNext"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -197,7 +208,8 @@
         android:id="@+id/customer_new_obs"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:inputType="text" />
 
     <View
         android:layout_width="wrap_content"
