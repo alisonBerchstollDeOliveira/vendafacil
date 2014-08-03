@@ -1,6 +1,7 @@
 package com.mmidgard.vendas.news;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Selection;
@@ -11,6 +12,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.mmidgard.vendas.R;
 
@@ -40,7 +42,31 @@ public class NewProduct extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				createDialog();
+				titulo.setText("Nova categoria");
+				ok.setOnClickListener(new OnClickListener() {
 
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+			}
+		});
+		
+		addProvider.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) { 
+				createDialog();
+				titulo.setText("Novo fornecedor");
+				ok.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
 			}
 		});
 
@@ -54,6 +80,19 @@ public class NewProduct extends Activity {
 
 		price.addTextChangedListener(tw);
 	}
+	
+	public void createDialog()
+	{
+		dialog = new Dialog(NewProduct.this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.new_category_provider);
+		dialog.setCancelable(true);
+		dialog.show();
+
+		titulo = (TextView)dialog.findViewById(R.id.category_new_title);
+		ok = (Button)dialog.findViewById(R.id.category_new_ok);
+	}
+	
 
 	TextWatcher tw = new TextWatcher() {
 
@@ -89,4 +128,7 @@ public class NewProduct extends Activity {
 			}
 		}
 	};
+	private Dialog dialog;
+	private TextView titulo;
+	private Button ok;
 }
