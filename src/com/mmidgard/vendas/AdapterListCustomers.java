@@ -58,8 +58,6 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 
 		String url = customer.getPathPhoto();
 		if (!url.isEmpty() && new File(url).exists()) {
-//			Bitmap bMap = BitmapFactory.decodeFile(url);
-//			photo.setImageBitmap(bMap);
 			 Picasso.with(context).load(new File(url)).into(photo);
 		}
 

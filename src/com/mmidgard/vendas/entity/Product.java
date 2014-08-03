@@ -12,15 +12,15 @@ public class Product implements Serializable {
 	@DatabaseField(id = true)
 	private int id;
 	@DatabaseField
+	private String code;
+	@DatabaseField
 	private String name;
 	@DatabaseField
 	private String description;
 	@DatabaseField
-	private String stock;
-	@DatabaseField
 	private double costPrice;
 	@DatabaseField
-	private String unit;
+	private String stock;
 	@DatabaseField
 	private Category category;
 	@DatabaseField
@@ -79,20 +79,28 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public String getUnit() {
-		return unit;
-	}
-
-	public void setType(String unit) {
-		this.unit = unit;
-	}
-
 	public Category getCategory() {
 		return category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
 	}
 
 	// public Collection<Sale> getSales() {
@@ -102,9 +110,5 @@ public class Product implements Serializable {
 	// public void setSales(Collection<Sale> sales) {
 	// this.sales = sales;
 	// }
-
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
 
 }
