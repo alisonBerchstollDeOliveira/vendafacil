@@ -93,6 +93,7 @@ public class ListCustomers extends GlobalActivity {
 
 	private void customersList() {
 		listCustomers = new ArrayList<Customer>();
+		
 		CustomerDAO cdao = new CustomerDAO(getApplicationContext());
 		listCustomers = cdao.getAll();
 		Collections.sort(listCustomers, Customer.getComparatorName());

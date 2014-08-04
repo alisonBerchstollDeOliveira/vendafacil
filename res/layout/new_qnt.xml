@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/category_new_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#2C71B5"
+        android:padding="5dp"
+        android:text="Quantidade:"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/qnt_rmv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/qnt_new_text"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/qnt_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/qnt_new_ok"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="ok"
+        android:textColor="#2C71B5" />
+
+</LinearLayout>

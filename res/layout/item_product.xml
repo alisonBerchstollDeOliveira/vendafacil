@@ -47,13 +47,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
+            android:layout_gravity="right"
             android:text="R$ 28,90"
             android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="right"
             android:orientation="horizontal" >
 
             <TextView

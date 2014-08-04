@@ -1,6 +1,7 @@
 package com.mmidgard.vendas.news;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.mmidgard.vendas.AdapterListSaleCustomer;
 import com.mmidgard.vendas.AdapterListSaleProduct;
 import com.mmidgard.vendas.R;
+import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.entity.Product;
 
@@ -81,16 +83,14 @@ public class NewSale extends Activity {
 
 	private void updateListCustomers() {
 		listCustomers = new ArrayList<Customer>();
-		Customer u;
-		u = new Customer("Lucas Rafagnin", "Francisco Beltrão", "PR");
-		listCustomers.add(u);
-		u = new Customer("Ronaldo Simões", "Rio de Janeiro", "RJ");
-		listCustomers.add(u);
-		u = new Customer("Alexandre Silva", "São Paulo", "SP");
-		listCustomers.add(u);
+		CustomerDAO cdao = new CustomerDAO(getApplicationContext());
+		listCustomers = cdao.getAll();
+		Collections.sort(listCustomers, Customer.getComparatorName());
 
 		adapterListCustomer = new AdapterListSaleCustomer(NewSale.this, listCustomers);
 		listviewCustomers.setAdapter(adapterListCustomer);
+
+		cdao.close();
 	}
 
 	private void updateListProducts() {

@@ -45,9 +45,9 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#ffffff"
         android:orientation="vertical"
-        android:visibility="gone"
-        android:background="#ffffff" >
+        android:visibility="gone" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -156,18 +156,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:animateLayoutChanges="true"
-        android:background="#fff"
-        />
+        android:background="#fff" />
 
     <ListView
-        android:visibility="gone"
         android:id="@+id/list_products"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:animateLayoutChanges="true"
         android:background="#fff"
-        />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/next_step"
