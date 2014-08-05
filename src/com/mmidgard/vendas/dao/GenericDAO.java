@@ -8,6 +8,7 @@ import android.content.Context;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 public abstract class GenericDAO<E> extends BDControle<E> {
 
@@ -72,6 +73,19 @@ public abstract class GenericDAO<E> extends BDControle<E> {
 			dao.update(obj);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public List<E> getValor(String valor, String campo) {
+		List<E> lista = new ArrayList<E>();
+		try {
+			QueryBuilder<E, Integer> queryBuilder = dao.queryBuilder();
+			queryBuilder.where().eq(campo, valor);
+			lista = dao.query(queryBuilder.prepare());
+			return lista;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 

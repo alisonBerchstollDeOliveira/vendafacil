@@ -17,8 +17,9 @@ public class Provider implements Serializable {
 	private String name;
 	@DatabaseField
 	private String description;
-	@ForeignCollectionField
-	private Collection<Product> products;
+
+	// @ForeignCollectionField
+	// private Collection<Product> products;
 
 	public int getId() {
 		return id;
@@ -44,14 +45,12 @@ public class Provider implements Serializable {
 		this.description = description;
 	}
 
-	public Collection<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(Collection<Product> products) {
-		this.products = products;
-	}
-	
-	
+	// public Collection<Product> getProducts() {
+	// return products;
+	// }
+	//
+	// public void setProducts(Collection<Product> products) {
+	// this.products = products;
+	// }
 
 }

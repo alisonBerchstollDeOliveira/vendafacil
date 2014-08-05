@@ -1,6 +1,8 @@
 package com.mmidgard.vendas.news;
 
 import java.text.NumberFormat;
+import java.util.Arrays;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -24,8 +26,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mmidgard.vendas.R;
+import com.mmidgard.vendas.dao.CategoryDAO;
 import com.mmidgard.vendas.dao.ProductDAO;
+import com.mmidgard.vendas.dao.ProviderDAO;
+import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Product;
+import com.mmidgard.vendas.entity.Provider;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -50,6 +56,9 @@ public class NewProduct extends Activity {
 	private EditText description;
 	private EditText price;
 	private EditText stock;
+	private TextView text;
+	private Provider p;
+	private Category c;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +103,8 @@ public class NewProduct extends Activity {
 
 					@Override
 					public void onClick(View v) {
+						c = new Category();
+						c.setName(text.getText().toString());
 						dialog.dismiss();
 					}
 				});
@@ -110,6 +121,8 @@ public class NewProduct extends Activity {
 
 					@Override
 					public void onClick(View v) {
+						p = new Provider();
+						p.setName(text.getText().toString());
 						dialog.dismiss();
 					}
 				});
@@ -129,7 +142,7 @@ public class NewProduct extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (validate()) {
-					ProductDAO cdao = new ProductDAO(getApplicationContext());
+					ProductDAO pdao = new ProductDAO(getApplicationContext());
 					product.setCode(code.getText().toString());
 					product.setPathPhoto(pathPhoto);
 					product.setName(name.getText().toString());
@@ -137,12 +150,25 @@ public class NewProduct extends Activity {
 					product.setCostPrice(price.getText().toString());
 					product.setStock(stock.getText().toString());
 
-					if (edit)
-						cdao.update(product);
-					else
-						cdao.insert(product);
+					CategoryDAO cdao = new CategoryDAO(NewProduct.this);
+					ProviderDAO pvdao = new ProviderDAO(NewProduct.this);
 
-					cdao.close();
+					List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
+					Category categoriaBanco = new Category();
+
+					if (categoriasBanco.size() == 0) {
+						c.setProducts(Arrays.asList(product));
+						cdao.insert(c);
+						product.setCategory(c);
+					} else {
+						categoriaBanco = categoriasBanco.get(0);
+						cdao.update(categoriaBanco);
+						product.setCategory(categoriaBanco);
+					}
+
+					pdao.insert(product);
+
+					pdao.close();
 
 					setResult(2);
 					finish();
@@ -180,6 +206,7 @@ public class NewProduct extends Activity {
 
 		titulo = (TextView)dialog.findViewById(R.id.category_new_title);
 		ok = (Button)dialog.findViewById(R.id.category_new_ok);
+		text = (TextView)dialog.findViewById(R.id.new_text);
 	}
 
 	TextWatcher tw = new TextWatcher() {

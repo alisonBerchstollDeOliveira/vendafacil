@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.entity.Product;
+import com.mmidgard.vendas.entity.Provider;
 
 public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 	private static final String NOME_BD = "vendas.db";
@@ -24,6 +26,8 @@ public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 		try {
 			TableUtils.createTableIfNotExists(src, Customer.class);
 			TableUtils.createTableIfNotExists(src, Product.class);
+			TableUtils.createTableIfNotExists(src, Category.class);
+			TableUtils.createTableIfNotExists(src, Provider.class);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -35,6 +39,8 @@ public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 		try {
 			TableUtils.dropTable(src, Customer.class, true);
 			TableUtils.dropTable(src, Product.class, true);
+			TableUtils.dropTable(src, Category.class, true);
+			TableUtils.dropTable(src, Provider.class, true);
 
 			onCreate(db, src);
 		} catch (SQLException e) {

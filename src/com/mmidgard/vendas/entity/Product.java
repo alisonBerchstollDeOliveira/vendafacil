@@ -26,8 +26,8 @@ public class Product implements Serializable {
 	private String stock;
 	@DatabaseField(foreign=true)
 	private Category category;
-	@DatabaseField(foreign=true)
-	private Provider provider;
+//	@DatabaseField(foreign=true)
+//	private Provider provider;
 
 
 	public Product() {
@@ -103,14 +103,14 @@ public class Product implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-
-	public Provider getProvider() {
-		return provider;
-	}
-
-	public void setProvider(Provider provider) {
-		this.provider = provider;
-	}
+//
+//	public Provider getProvider() {
+//		return provider;
+//	}
+//
+//	public void setProvider(Provider provider) {
+//		this.provider = provider;
+//	}
 
 	public static Comparator<Product> getComparatorName() {
 		return new Comparator<Product>() {
