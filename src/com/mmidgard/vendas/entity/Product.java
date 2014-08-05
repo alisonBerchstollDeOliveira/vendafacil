@@ -6,13 +6,13 @@ import java.util.Comparator;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "product")
+@DatabaseTable(tableName = "provider")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 198661379875270618L;
 	@DatabaseField(generatedId = true)
 	private int id;
-	@DatabaseField
+	@DatabaseField 
 	private String pathPhoto;
 	@DatabaseField
 	private String code;
@@ -24,11 +24,10 @@ public class Product implements Serializable {
 	private String costPrice;
 	@DatabaseField
 	private String stock;
-	@DatabaseField(foreign=true)
+	@DatabaseField(foreign = true, foreignAutoRefresh = true)
 	private Category category;
-//	@DatabaseField(foreign=true)
-//	private Provider provider;
-
+	@DatabaseField(foreign = true, foreignAutoRefresh = true)
+	private Provider provider;
 
 	public Product() {
 	}
@@ -94,7 +93,6 @@ public class Product implements Serializable {
 	public void setPathPhoto(String pathPhoto) {
 		this.pathPhoto = pathPhoto;
 	}
-	
 
 	public Category getCategory() {
 		return category;
@@ -103,14 +101,15 @@ public class Product implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-//
-//	public Provider getProvider() {
-//		return provider;
-//	}
-//
-//	public void setProvider(Provider provider) {
-//		this.provider = provider;
-//	}
+
+	//
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 
 	public static Comparator<Product> getComparatorName() {
 		return new Comparator<Product>() {

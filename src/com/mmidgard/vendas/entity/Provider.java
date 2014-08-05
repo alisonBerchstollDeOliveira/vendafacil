@@ -11,15 +11,14 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Provider implements Serializable {
 
 	private static final long serialVersionUID = 5366877243743790713L;
-	@DatabaseField(id = true)
+	@DatabaseField(generatedId = true)
 	private int id;
 	@DatabaseField
 	private String name;
 	@DatabaseField
 	private String description;
-
-	// @ForeignCollectionField
-	// private Collection<Product> products;
+	@ForeignCollectionField(eager = true)
+	private Collection<Product> products;
 
 	public int getId() {
 		return id;
@@ -45,12 +44,12 @@ public class Provider implements Serializable {
 		this.description = description;
 	}
 
-	// public Collection<Product> getProducts() {
-	// return products;
-	// }
-	//
-	// public void setProducts(Collection<Product> products) {
-	// this.products = products;
-	// }
+	public Collection<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Collection<Product> products) {
+		this.products = products;
+	}
 
 }

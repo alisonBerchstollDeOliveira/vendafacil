@@ -19,16 +19,17 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.dao.CategoryDAO;
 import com.mmidgard.vendas.dao.ProductDAO;
-import com.mmidgard.vendas.dao.ProviderDAO;
 import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Product;
 import com.mmidgard.vendas.entity.Provider;
@@ -48,8 +49,8 @@ public class NewProduct extends Activity {
 	private Product product;
 	private Button cancel;
 	private Button save;
-	private boolean edit = false;
 
+	private Spinner categories;
 	private ImageView photo;
 	private EditText code;
 	private EditText name;
@@ -78,6 +79,7 @@ public class NewProduct extends Activity {
 		description = (EditText)findViewById(R.id.product_new_description);
 		price = (EditText)findViewById(R.id.product_new_price);
 		stock = (EditText)findViewById(R.id.product_new_stock);
+		categories = (Spinner)findViewById(R.id.product_new_category);
 
 		addCategory = (ImageButton)findViewById(R.id.add_category);
 		addProvider = (ImageButton)findViewById(R.id.add_provider);
@@ -105,6 +107,10 @@ public class NewProduct extends Activity {
 					public void onClick(View v) {
 						c = new Category();
 						c.setName(text.getText().toString());
+						CategoryDAO cdao = new CategoryDAO(NewProduct.this);
+						cdao.insert(c);
+						spinners();
+
 						dialog.dismiss();
 					}
 				});
@@ -151,20 +157,29 @@ public class NewProduct extends Activity {
 					product.setStock(stock.getText().toString());
 
 					CategoryDAO cdao = new CategoryDAO(NewProduct.this);
-					ProviderDAO pvdao = new ProviderDAO(NewProduct.this);
+					if (c != null) {
+						List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
+						Category categoriaBanco = new Category();
 
-					List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
-					Category categoriaBanco = new Category();
-
-					if (categoriasBanco.size() == 0) {
-						c.setProducts(Arrays.asList(product));
-						cdao.insert(c);
-						product.setCategory(c);
-					} else {
 						categoriaBanco = categoriasBanco.get(0);
 						cdao.update(categoriaBanco);
 						product.setCategory(categoriaBanco);
+					} else {
+						Category c = (Category)categories.getSelectedItem();
+						c.setProducts(Arrays.asList(product));
+						cdao.update(c);
+						product.setCategory(c);
 					}
+
+					// if (categoriasBanco.size() == 0) {
+					// c.setProducts(Arrays.asList(product));
+					// cdao.insert(c);
+					// product.setCategory(c);
+					// } else {
+					// categoriaBanco = categoriasBanco.get(0);
+					// cdao.update(categoriaBanco);
+					// product.setCategory(categoriaBanco);
+					// }
 
 					pdao.insert(product);
 
@@ -178,6 +193,15 @@ public class NewProduct extends Activity {
 
 		price.addTextChangedListener(tw);
 		price.setInputType(InputType.TYPE_CLASS_NUMBER);
+		spinners();
+	}
+
+	private void spinners() {
+		CategoryDAO cdao = new CategoryDAO(NewProduct.this);
+		ArrayAdapter<Category> adapter = new ArrayAdapter<Category>(this, android.R.layout.simple_spinner_item, cdao.getAll());
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		categories.setAdapter(adapter);
+		categories.setSelection(categories.getCount() - 1);
 	}
 
 	private boolean validate() {

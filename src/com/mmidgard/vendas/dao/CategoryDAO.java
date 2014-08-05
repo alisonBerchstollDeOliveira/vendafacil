@@ -11,3 +11,4 @@ public class CategoryDAO extends GenericDAO<Category> {
 	}
 
 }
+ 

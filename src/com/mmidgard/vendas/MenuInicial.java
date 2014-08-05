@@ -14,8 +14,10 @@ import android.widget.Button;
 import com.mmidgard.vendas.dao.CategoryDAO;
 import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.dao.ProductDAO;
+import com.mmidgard.vendas.dao.ProviderDAO;
 import com.mmidgard.vendas.entity.Category;
 import com.mmidgard.vendas.entity.Product;
+import com.mmidgard.vendas.entity.Provider;
 import com.mmidgard.vendas.list.ListCustomers;
 import com.mmidgard.vendas.list.ListProducts;
 import com.mmidgard.vendas.news.NewCustomer;
@@ -41,16 +43,31 @@ public class MenuInicial extends GlobalActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.menu);
 
-//		CategoryDAO cdao = new CategoryDAO(MenuInicial.this);
-//		List<Category> categories = cdao.getAll();
-//		for (Category c : categories) {
-//			Log.i("Banco de dados", "Categoria: " + c.getName() + " / " + c.getProducts().size());
-//			for (Product p : c.getProducts()) {
-//				Log.i("Banco de dados", "Produto: " + p.getName() + " / " + p.getCategory().getName());
-//			}
-//		}
-//
-//		Log.i("Banco de dados", "Qnt de categorias: " + categories.size());
+		ProductDAO pdao = new ProductDAO(MenuInicial.this);
+		List<Product> products = pdao.getAll();
+		Log.i("Banco de dados", "---------------------");
+		for (Product p : products) {
+			Log.i("Banco de dados", "Produto: " + p.getName());
+			if (p.getCategory() != null)
+				Log.i("Banco de dados", "--" + p.getCategory().getId() + "/" + p.getCategory().getName());
+			// Log.i("Banco de dados", "--" + p.getProvider().getId());
+		}
+
+		CategoryDAO cdao = new CategoryDAO(MenuInicial.this);
+		List<Category> cs = cdao.getAll();
+		Log.i("Banco de dados", "Qnt de categorias: " + cs.size());
+
+		Log.i("Banco de dados", "++++++++++++++++");
+		for (Category c : cs) {
+			Log.i("Banco de dados", "Categoria: " + c.getName());
+			for (Product pd : c.getProducts()) {
+				Log.i("Banco de dados", "--: " + pd.getName());
+			}
+		}
+
+		// ProviderDAO pvdao = new ProviderDAO(MenuInicial.this);
+		// Log.i("Banco de dados", "Qnt de fornecedores: " +
+		// pvdao.getAll().size());
 
 		getValues();
 	}
