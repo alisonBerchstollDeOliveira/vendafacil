@@ -35,9 +35,11 @@
         android:id="@+id/new_"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#009989"
+        android:background="#343838"
         android:text="Novo produto"
         android:textColor="#fff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
 
 </LinearLayout>

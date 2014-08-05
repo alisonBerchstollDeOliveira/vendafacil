@@ -11,7 +11,8 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginRight="5dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/cam2" 
+        android:padding="5dp"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -46,30 +47,21 @@
             android:id="@+id/item_product_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="5dp"
             android:layout_gravity="right"
-            android:text="R$ 28,90"
-            android:textSize="16sp" />
+            android:paddingRight="5dp"
+            android:textColor="#01533E"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/item_product_stock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Estoque: " />
-
-            <TextView
-                android:id="@+id/item_product_stock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:text="24"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:paddingRight="5dp"
+            android:text="24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

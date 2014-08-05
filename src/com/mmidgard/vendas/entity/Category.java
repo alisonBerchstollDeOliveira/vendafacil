@@ -16,7 +16,7 @@ public class Category implements Serializable {
 	private int id;
 	@DatabaseField
 	private String name;
-	@ForeignCollectionField(eager = true)
+	@ForeignCollectionField
 	private Collection<Product> products;
 
 	public Category() {
@@ -50,4 +50,5 @@ public class Category implements Serializable {
 		this.products = products;
 	}
 
+	
 }

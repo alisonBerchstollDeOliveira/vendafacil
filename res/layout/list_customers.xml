@@ -35,7 +35,7 @@
         android:id="@+id/new_"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#009989"
+        android:background="#343838"
         android:text="Novo cliente"
         android:textColor="#fff"
         android:textSize="20sp" />

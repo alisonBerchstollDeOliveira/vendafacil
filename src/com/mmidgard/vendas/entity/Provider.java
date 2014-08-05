@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "provider")
-public class Provider implements Serializable{
+public class Provider implements Serializable {
 
 	private static final long serialVersionUID = 5366877243743790713L;
 	@DatabaseField(id = true)
@@ -16,7 +17,7 @@ public class Provider implements Serializable{
 	private String name;
 	@DatabaseField
 	private String description;
-	@DatabaseField
+	@ForeignCollectionField
 	private Collection<Product> products;
 
 	public int getId() {
@@ -50,5 +51,7 @@ public class Provider implements Serializable{
 	public void setProducts(Collection<Product> products) {
 		this.products = products;
 	}
+	
+	
 
 }

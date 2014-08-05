@@ -19,6 +19,7 @@ import com.mmidgard.vendas.AdapterListSaleCustomer;
 import com.mmidgard.vendas.AdapterListSaleProduct;
 import com.mmidgard.vendas.R;
 import com.mmidgard.vendas.dao.CustomerDAO;
+import com.mmidgard.vendas.dao.ProductDAO;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.entity.Product;
 
@@ -29,7 +30,7 @@ public class NewSale extends Activity {
 	private ListView listviewCustomers;
 	private ListView listviewProducts;
 	private List<Customer> listCustomers;
-	private List<Product> listProduct;
+	private List<Product> listProducts;
 	private Button nextStep;
 	private Button menu1;
 	private Button menu2;
@@ -94,17 +95,15 @@ public class NewSale extends Activity {
 	}
 
 	private void updateListProducts() {
-		listProduct = new ArrayList<Product>();
-		Product p;
-		p = new Product("Nome produto1", "3", "10.00");
-		listProduct.add(p);
-		p = new Product("Nome produto2", "25", "20.00");
-		listProduct.add(p);
-		p = new Product("Nome produto3", "10", "15.00");
-		listProduct.add(p);
+		listProducts = new ArrayList<Product>();
+		ProductDAO pdao = new ProductDAO(getApplicationContext());
+		listProducts = pdao.getAll();
+		Collections.sort(listProducts, Product.getComparatorName());
 
-		adapterListProduct = new AdapterListSaleProduct(NewSale.this, listProduct);
+		adapterListProduct = new AdapterListSaleProduct(NewSale.this, listProducts);
 		listviewProducts.setAdapter(adapterListProduct);
+
+		pdao.close();
 	}
 
 }

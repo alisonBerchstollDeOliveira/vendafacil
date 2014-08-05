@@ -133,6 +133,7 @@ public class Customer implements Serializable {
 		this.pathPhoto = pathPhoto;
 	}
 
+	
 	public static Comparator<Customer> getComparatorName() {
 		return new Comparator<Customer>() {
 			@Override

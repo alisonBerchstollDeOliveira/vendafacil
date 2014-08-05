@@ -24,15 +24,11 @@ public class Product implements Serializable {
 	private String costPrice;
 	@DatabaseField
 	private String stock;
+	@DatabaseField(foreign=true)
+	private Category category;
+	@DatabaseField(foreign=true)
+	private Provider provider;
 
-	// @DatabaseField(columnName = "category", foreign = true)
-	// private Category category;
-
-	// @DatabaseField(columnName = "provider", foreign = true)
-	// private Provider provider;
-
-	// @DatabaseField
-	// private Collection<Sale> sales;
 
 	public Product() {
 	}
@@ -98,22 +94,23 @@ public class Product implements Serializable {
 	public void setPathPhoto(String pathPhoto) {
 		this.pathPhoto = pathPhoto;
 	}
+	
 
-	// public Provider getProvider() {
-	// return provider;
-	// }
-	//
-	// public void setProvider(Provider provider) {
-	// this.provider = provider;
-	// }
+	public Category getCategory() {
+		return category;
+	}
 
-	// public Collection<Sale> getSales() {
-	// return sales;
-	// }
-	//
-	// public void setSales(Collection<Sale> sales) {
-	// this.sales = sales;
-	// }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
 
 	public static Comparator<Product> getComparatorName() {
 		return new Comparator<Product>() {
