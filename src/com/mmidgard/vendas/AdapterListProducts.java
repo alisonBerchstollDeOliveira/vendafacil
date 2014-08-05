@@ -52,15 +52,17 @@ public class AdapterListProducts extends BaseAdapter implements Serializable {
 		TextView name = (TextView)v.findViewById(R.id.item_product_name);
 		TextView value = (TextView)v.findViewById(R.id.item_product_value);
 		TextView stock = (TextView)v.findViewById(R.id.item_product_stock);
-		
+		TextView category = (TextView)v.findViewById(R.id.item_product_category);
+
 		String url = product.getPathPhoto();
 		if (!url.isEmpty() && new File(url).exists()) {
-			 Picasso.with(context).load(new File(url)).into(photo);
+			Picasso.with(context).load(new File(url)).into(photo);
 		}
 
 		name.setText(product.getName());
 		value.setText(String.valueOf(product.getCostPrice()));
 		stock.setText(product.getStock());
+		category.setText(product.getCategory().getName());
 
 		return v;
 	}

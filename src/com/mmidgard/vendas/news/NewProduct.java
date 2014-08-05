@@ -157,6 +157,7 @@ public class NewProduct extends Activity {
 					product.setStock(stock.getText().toString());
 
 					CategoryDAO cdao = new CategoryDAO(NewProduct.this);
+					
 					if (c != null) {
 						List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
 						Category categoriaBanco = new Category();
@@ -170,16 +171,6 @@ public class NewProduct extends Activity {
 						cdao.update(c);
 						product.setCategory(c);
 					}
-
-					// if (categoriasBanco.size() == 0) {
-					// c.setProducts(Arrays.asList(product));
-					// cdao.insert(c);
-					// product.setCategory(c);
-					// } else {
-					// categoriaBanco = categoriasBanco.get(0);
-					// cdao.update(categoriaBanco);
-					// product.setCategory(categoriaBanco);
-					// }
 
 					pdao.insert(product);
 
