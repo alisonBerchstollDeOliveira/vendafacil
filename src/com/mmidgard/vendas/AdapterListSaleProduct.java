@@ -70,12 +70,11 @@ public class AdapterListSaleProduct extends BaseAdapter implements Serializable 
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				Toast.makeText(context, "AKI " + isChecked, Toast.LENGTH_SHORT).show();
 				if (isChecked) {
 					dialog = new Dialog(context);
 					dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 					dialog.setContentView(R.layout.new_qnt);
-					dialog.setCancelable(true);
+					dialog.setCancelable(false);
 					dialog.show();
 
 					final EditText valueQnt = (EditText)dialog.findViewById(R.id.qnt_new_text);
@@ -85,6 +84,7 @@ public class AdapterListSaleProduct extends BaseAdapter implements Serializable 
 						@Override
 						public void onClick(View v) {
 							qnt.setText(valueQnt.getText().toString());
+							product.setSelected(true);
 							dialog.dismiss();
 						}
 					});
@@ -116,8 +116,10 @@ public class AdapterListSaleProduct extends BaseAdapter implements Serializable 
 								Toast.makeText(context, valor + " é o estoque disponível deste produto.", Toast.LENGTH_LONG).show();
 						}
 					});
-				} else
+				} else {
 					qnt.setText("");
+					product.setSelected(false);
+				}
 			}
 		});
 

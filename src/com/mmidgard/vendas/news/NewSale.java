@@ -70,9 +70,17 @@ public class NewSale extends Activity {
 					menu3.setTextColor(Color.parseColor("#3E3E3C"));
 					menuPagamento.setVisibility(View.VISIBLE);
 					nextStep.setText("Finalizar venda");
+					for (Product p: listProducts)
+					{
+						if (p.isSelected())
+							Toast.makeText(NewSale.this, "Selecionado: " + p.getName(), Toast.LENGTH_SHORT).show();
+					}
 				} else {
-					Toast.makeText(NewSale.this, "Venda efetuada com sucesso!", Toast.LENGTH_LONG).show();
-					finish();
+					if (valida())
+					{
+						Toast.makeText(NewSale.this, "Venda efetuada com sucesso!", Toast.LENGTH_LONG).show();
+						finish();
+					}
 				}
 
 			}
@@ -104,6 +112,10 @@ public class NewSale extends Activity {
 		listviewProducts.setAdapter(adapterListProduct);
 
 		pdao.close();
+	}
+
+	private boolean valida() {
+		return true;
 	}
 
 }
