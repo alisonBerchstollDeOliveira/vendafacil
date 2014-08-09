@@ -12,7 +12,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 198661379875270618L;
 	@DatabaseField(generatedId = true)
 	private int id;
-	@DatabaseField 
+	@DatabaseField
 	private String pathPhoto;
 	@DatabaseField
 	private String code;
@@ -29,6 +29,7 @@ public class Product implements Serializable {
 	@DatabaseField(foreign = true, foreignAutoRefresh = true)
 	private Provider provider;
 	private boolean selected = false;
+	private int qnt;
 
 	public Product() {
 	}
@@ -128,5 +129,16 @@ public class Product implements Serializable {
 		};
 	}
 
-	
+	public int getQnt() {
+		return qnt;
+	}
+
+	public void setQnt(int qnt) {
+		this.qnt = qnt;
+	}
+
+	public String getPriceFormatted() {
+		return "R$" + getCostPrice();
+	}
+
 }

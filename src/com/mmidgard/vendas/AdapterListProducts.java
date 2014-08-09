@@ -60,7 +60,7 @@ public class AdapterListProducts extends BaseAdapter implements Serializable {
 		}
 
 		name.setText(product.getName());
-		value.setText(String.valueOf(product.getCostPrice()));
+		value.setText(product.getPriceFormatted());
 		stock.setText(product.getStock());
 		category.setText(product.getCategory().getName());
 

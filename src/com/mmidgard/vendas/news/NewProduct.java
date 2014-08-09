@@ -153,11 +153,13 @@ public class NewProduct extends Activity {
 					product.setPathPhoto(pathPhoto);
 					product.setName(name.getText().toString());
 					product.setDescription(description.getText().toString());
-					product.setCostPrice(price.getText().toString());
+					String pricef = price.getText().toString().substring(2, price.getText().toString().length());
+					pricef = pricef.replaceAll(",", ".");
+					product.setCostPrice(pricef);
 					product.setStock(stock.getText().toString());
 
 					CategoryDAO cdao = new CategoryDAO(NewProduct.this);
-					
+
 					if (c != null) {
 						List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
 						Category categoriaBanco = new Category();

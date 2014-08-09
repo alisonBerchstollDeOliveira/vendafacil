@@ -15,7 +15,7 @@ import com.mmidgard.vendas.entity.Provider;
 
 public class BDControle<E> extends OrmLiteSqliteOpenHelper {
 	private static final String NOME_BD = "vendas.db";
-	private static int VERSAO_BD = 2;
+	private static int VERSAO_BD = 3;
 
 	public BDControle(Context context) {
 		super(context, NOME_BD, null, VERSAO_BD);

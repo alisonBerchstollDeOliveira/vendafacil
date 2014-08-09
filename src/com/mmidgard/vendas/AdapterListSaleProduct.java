@@ -5,7 +5,6 @@ import java.util.List;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -63,7 +62,7 @@ public class AdapterListSaleProduct extends BaseAdapter implements Serializable 
 		TextView stock = (TextView)v.findViewById(R.id.item_product_stock);
 
 		name.setText(product.getName());
-		value.setText(String.valueOf(product.getCostPrice()));
+		value.setText(product.getPriceFormatted());
 		stock.setText(product.getStock());
 
 		check.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -83,8 +82,10 @@ public class AdapterListSaleProduct extends BaseAdapter implements Serializable 
 
 						@Override
 						public void onClick(View v) {
-							qnt.setText(valueQnt.getText().toString());
+							String quantidade = valueQnt.getText().toString();
+							qnt.setText(quantidade);
 							product.setSelected(true);
+							product.setQnt(Integer.parseInt(quantidade));
 							dialog.dismiss();
 						}
 					});

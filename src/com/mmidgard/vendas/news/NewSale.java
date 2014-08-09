@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mmidgard.vendas.AdapterListSaleCustomer;
@@ -22,6 +23,7 @@ import com.mmidgard.vendas.dao.CustomerDAO;
 import com.mmidgard.vendas.dao.ProductDAO;
 import com.mmidgard.vendas.entity.Customer;
 import com.mmidgard.vendas.entity.Product;
+import com.mmidgard.vendas.entity.Sale;
 
 public class NewSale extends Activity {
 
@@ -31,6 +33,8 @@ public class NewSale extends Activity {
 	private ListView listviewProducts;
 	private List<Customer> listCustomers;
 	private List<Product> listProducts;
+	private List<Product> listProductsSelected = new ArrayList<Product>();
+	private Sale sale;
 	private Button nextStep;
 	private Button menu1;
 	private Button menu2;
@@ -70,14 +74,9 @@ public class NewSale extends Activity {
 					menu3.setTextColor(Color.parseColor("#3E3E3C"));
 					menuPagamento.setVisibility(View.VISIBLE);
 					nextStep.setText("Finalizar venda");
-					for (Product p: listProducts)
-					{
-						if (p.isSelected())
-							Toast.makeText(NewSale.this, "Selecionado: " + p.getName(), Toast.LENGTH_SHORT).show();
-					}
+					updateForm();
 				} else {
-					if (valida())
-					{
+					if (valida()) {
 						Toast.makeText(NewSale.this, "Venda efetuada com sucesso!", Toast.LENGTH_LONG).show();
 						finish();
 					}
@@ -116,6 +115,35 @@ public class NewSale extends Activity {
 
 	private boolean valida() {
 		return true;
+	}
+
+	private void updateForm() {
+		TextView numberProducts = (TextView)findViewById(R.id.sale_number_products);
+		TextView qntProducts = (TextView)findViewById(R.id.sale_qnt_products);
+		int num = 0;
+		int qnt = 0;
+
+		for (Product p : listProducts) {
+			if (p.isSelected()) {
+				num++;
+				qnt += p.getQnt();
+				listProductsSelected.add(p);
+			}
+		}
+
+		numberProducts.setText("Produtos: " + num);
+		qntProducts.setText("Quantidade: " + qnt);
+		setTotalValue();
+	}
+
+	private void setTotalValue() {
+		TextView valueTotal = (TextView) findViewById(R.id.sale_total_value);
+		double value = 0;
+		for (Product p : listProductsSelected) {
+			value += Double.parseDouble(p.getCostPrice()) * p.getQnt();
+		}
+		
+		valueTotal.setText("R$" + value);
 	}
 
 }
