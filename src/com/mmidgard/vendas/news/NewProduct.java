@@ -163,8 +163,8 @@ public class NewProduct extends Activity {
 					if (c != null) {
 						List<Category> categoriasBanco = cdao.getValor(c.getName(), "name");
 						Category categoriaBanco = new Category();
-
 						categoriaBanco = categoriasBanco.get(0);
+						
 						cdao.update(categoriaBanco);
 						product.setCategory(categoriaBanco);
 					} else {

@@ -65,7 +65,7 @@ public class AdapterListCustomers extends BaseAdapter implements Serializable {
 		city.setText(customer.getCity());
 
 		edit.setOnClickListener(new OnClickListener() {
- 
+
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(context, NewCustomer.class);
